@@ -1,0 +1,60 @@
+.container{
+    
+    background-color: lightgray;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto
+}
+h1{
+    padding-top: 2em;
+    text-align: center;
+}
+
+.textbox{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+}
+.count{
+    font-size: 35px;
+    padding-left: 0.2em;
+}
+.radiobtn{
+    text-align: center;
+    padding-top: 1em;
+}
+
+h2{
+    text-align: center;
+    padding-bottom: 2em;
+}
+.errors{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.error{
+    text-align: center;
+    color: red;
+}
+@media (max-width: 800px) {
+    .container{
+        width: 90%;
+        background-color: #e9edc9;
+    }
+    .buttons{
+        padding-top: 1em;
+        text-align: center;
+    }
+    .rbutton, .gbutton{
+        background-color: lightgoldenrodyellow;
+    }
+    
+}
+@media (min-width:900px){
+    .buttons{
+        text-align: center;;
+        padding-top: 1em;
+    }
+
+}

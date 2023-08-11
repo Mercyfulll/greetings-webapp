@@ -74,7 +74,6 @@ app.post("/counter", function(req,res){
         var selected = greet.getLanguageSelector()
         var userCount = greet.greetedUsers(req.body.name)
         
-
 //    if(greet.getLanguageSelector() == ''){
 //         req.flash('error', 'Please select language');
 //    } else if (greet.setValidateName(req.body.name) == ''){
@@ -84,7 +83,9 @@ app.post("/counter", function(req,res){
 //    }else{
 //    }
     user
-    console.log(selected)
+    select
+    selected
+    userCount
     res.redirect("/")
 })
 app.get("/counter/User_name", function(req,res){

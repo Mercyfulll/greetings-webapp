@@ -1,20 +1,25 @@
-var greetingsCounter = 0;
-
 export default function greetMe(){
+    var greetingsCounter = 0;
     var namesGreeted = {};
     var isValidName = '';
     var greeting = '';
+    var namesList = [];
+
 
     function setValidateName(name){
         var valid = /^[A-Za-z]+$/
          let validName = valid.test(name)
        if(validName){
            isValidName = name
+           namesList.push(isValidName)
        }
         
     }
     function getValidateName(){
         return isValidName
+    }
+    function getNamesList(){
+        return namesList
     }
     function setLanguageSelector(language){
         if(language == 'english'){
@@ -30,15 +35,17 @@ export default function greetMe(){
     }
     function greetedUsers(name){
         var lowNames = name.toLowerCase()
-        if (namesGreeted[lowNames] === undefined){
-            greetingsCounter++;
-            //add an entry for the user that was greeted in the Object Map
-            namesGreeted[lowNames] = 1;
-        } else {
-            // update the counter for a specific username
-            namesGreeted[lowNames]++;
-        }
-        return greetingsCounter;
+            if (namesGreeted[lowNames] === undefined){
+                greetingsCounter++;
+                //add an entry for the user that was greeted in the Object Map
+                namesGreeted[lowNames] = 1;
+            } else {
+                // update the counter for a specific username
+                namesGreeted[lowNames]++;
+            }
+    }
+    function getNamesGreetings(){
+        return namesGreeted
     }
     function errorDisplay(){
         if(!validateName() && !languageSelector()){
@@ -55,7 +62,7 @@ export default function greetMe(){
             return "Please select language"
         }
     }
-    function counter(){
+    function getCounter(){
         return greetingsCounter;
     }
     function resetCount(){
@@ -65,12 +72,14 @@ export default function greetMe(){
         greetedUsers,
         setLanguageSelector,
         getLanguageSelector,
+        getNamesList,
         setValidateName,
         getValidateName,
         errorDisplay,
         nameErrorDisplay,
         buttonErrorDisplay,
-        counter,
+        getCounter,
+        getNamesGreetings,
         resetCount
     }
 }

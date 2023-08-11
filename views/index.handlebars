@@ -1,26 +1,28 @@
 <h1>Greetings</h1>
     <div class="errors">
-        <span class="error"></span>
+        <span class="error">{{error}}</span>
     </div>
-    <form action="/counter/User_Name" method="POST">
+    <form action="/counter" method="POST">
         <div class="textbox">
-    
             <label name="name">Name:</label>
-            <input type="text" class="text" name="User_name">
-            <label class="count"><a href="/greeted">0</a></label>
+            <input type="text" class="text" name="name">
+            <label class="count" name="count"><a href="/counter/User_name">{{count}}</a></label>
         </div>
         <div class="radiobtn">
-            <input type="radio" name="language" value="english">
-            <label for="html">English</label>
-            <input type="radio" name="language" value="setswana">
-            <label for="html">Setswana</label>
-            <input type="radio" name="language" value="isizulu">
-            <label for="html">Isizulu</label>
+            <input type="radio" name ="languages" value="english">
+            <label>English</label>
+            <label>
+            <input type="radio" name ="languages" value="setswana">
+            <span>Setswana</span>
+            </label>
+            <input type="radio" name ="languages" value="isizulu">
+            <label>Isizulu</label>
         </div>
         <div class="buttons">
             <button class="gbutton" type="submit">Greet me</button>
             <button class="rbutton" type="button">Reset</button>
         </div>
+    </form>
     {{!-- /'' --}}
-<H2> <span class="output">{{language}}</span>, <span class="gname"><a href="/greeted">{{name}}</a></span></H2>
+<h2> <span class="output">{{language}}</span>, <span class="gname"></span>{{name}}</span></h2>
     </div>

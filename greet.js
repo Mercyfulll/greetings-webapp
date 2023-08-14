@@ -4,6 +4,8 @@ export default function greetMe(){
     var isValidName = '';
     var greeting = '';
     var namesList = [];
+    var param = '';
+    var number = 0; 
 
 
     function setValidateName(name){
@@ -44,8 +46,21 @@ export default function greetMe(){
                 namesGreeted[lowNames]++;
             }
     }
+    function getObject(nameParam){
+        for(let name in namesGreeted){
+            
+            if(name === nameParam ){
+                    console.log(nameParam)
+                   number = namesGreeted[name]
+                   param = nameParam
+            }
+        }
+            return number
+        }
+
     function getNamesGreetings(){
-        return namesGreeted
+        
+         return namesGreeted
     }
     function errorDisplay(){
         if(!validateName() && !languageSelector()){
@@ -73,6 +88,7 @@ export default function greetMe(){
         setLanguageSelector,
         getLanguageSelector,
         getNamesList,
+        getObject,
         setValidateName,
         getValidateName,
         errorDisplay,

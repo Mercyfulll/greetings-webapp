@@ -1,12 +1,14 @@
 <h1>Greetings</h1>
     <div class="errors">
-        <span class="error">{{error}}</span>
+        
+        <span class="error">{{errorM}}</span>
+        
     </div>
     <form action="/counter" method="POST">
         <div class="textbox">
             <label name="name">Name:</label>
             <input type="text" class="text" name="name">
-            <label class="count" name="count"><a href="/counter/User_name">{{count}}</a></label>
+            <label class="count" name="count"><a href="/greeted">{{count}}</a></label>
         </div>
         <div class="radiobtn">
             <input type="radio" name ="languages" value="english">
@@ -20,9 +22,10 @@
         </div>
         <div class="buttons">
             <button class="gbutton" type="submit">Greet me</button>
+            
             <button class="rbutton" type="button">Reset</button>
         </div>
     </form>
     {{!-- /'' --}}
 <h2> <span class="output">{{language}}</span>, <span class="gname"></span>{{name}}</span></h2>
-    </div>
+</div>

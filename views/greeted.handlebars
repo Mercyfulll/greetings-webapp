@@ -1,4 +1,8 @@
-<h1>Counted Greetings</h1>
-{{#each namesGreeted}}
-<h4>Hello,{{namesGreeted.name}} Has been greeted {{namesGreeted.greetingsCounter}} times<h4>
-{{/each}}
+<div class="routes">
+    <h1>Users greeted</h1>
+    {{#each namesGreeted}}
+    <ul>
+        <li><a href="/counter/{{@key}}">{{@key}}</a><li>
+    <ul>
+    {{/each}}
+</div>

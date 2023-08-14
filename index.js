@@ -44,10 +44,10 @@ app.use(session({
 
 app.use(flash());
 
-app.use(function (req, res, next) {
-    res.locals.messages = req.flash();
-    next();
-  });
+// app.use(function (req, res, next) {
+//     res.locals.messages = req.flash();
+//     next();
+//   });
  
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -57,43 +57,55 @@ app.use(bodyParser.json())
 
 
 app.get("/",function(req,res){
+    
 
     res.render("index",{
-        error : req.flash('error'),
         language : greet.getLanguageSelector(),
         name : greet.getValidateName(),
         count : greet.getCounter(),
+        errorM : req.flash('error')
     })
     
 })
 
-app.post("/counter", function(req,res){
-        var namesList = []
-        var user = greet.setValidateName(req.body.name)
-        var select = greet.setLanguageSelector(req.body.languages)
-        var selected = greet.getLanguageSelector()
-        var userCount = greet.greetedUsers(req.body.name)
+app.get("/greeted", function(req,res){
+    
+    res.render("greeted",{
+        namesGreeted : greet.getNamesGreetings()
         
-//    if(greet.getLanguageSelector() == ''){
-//         req.flash('error', 'Please select language');
-//    } else if (greet.setValidateName(req.body.name) == ''){
-//         req.flash('error', 'Please enter name')
-//    } else if(greet.setValidateName(req.body.name) == '' && greet.getLanguageSelector() == ''){
-//         req.flash('error', 'Missing entries enter name and select language')
-//    }else{
-//    }
-    user
-    select
-    selected
-    userCount
+    })
+})
+
+
+app.post("/counter", function(req,res){
+        var user = req.body.name;
+        var selected = req.body.languages;
+        var msg = '';
+        
+        if(!selected && !user){
+                msg = req.flash('error', 'Missing entries enter name and select language');
+                setTimeout(() => {
+                    msg = '';
+                  }, 3000);
+        } else if (!user){
+                msg = req.flash('error',  'Please enter name');
+        }else if(!selected){
+                msg = req.flash('error', 'Please select language');
+        }else if(user && selected){
+             greet.setValidateName(req.body.name)
+             greet.setLanguageSelector(req.body.languages)
+             greet.greetedUsers(req.body.name)
+        }
+   
     res.redirect("/")
 })
-app.get("/counter/User_name", function(req,res){
+app.get("/counter/:User_name", function(req,res){
     const userName = req.params.User_name
-    console.log(greet.getNamesList())
-    res.render("counter",{
+    console.log(userName)
 
-        namesList : greet.getNamesList()
+    res.render("counter",{
+        userName ,
+        number : greet.getObject(userName)
     
     })
 })

@@ -8,7 +8,10 @@ h1{
     padding-top: 2em;
     text-align: center;
 }
-
+h4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
 .textbox{
     margin-left: auto;
     margin-right: auto;
@@ -27,9 +30,16 @@ h2{
     text-align: center;
     padding-bottom: 2em;
 }
-li{
+ul {
     list-style-type: none;
-}
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+  li{
+    padding: 0.2em;
+  }
 .errors{
     text-align: center;
     margin-left: auto;
@@ -38,6 +48,10 @@ li{
 .error{
     text-align: center;
     color: red;
+}
+.routes{
+    text-align: center;
+    padding-bottom: 3em;
 }
 @media (max-width: 800px) {
     .container{

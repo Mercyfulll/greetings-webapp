@@ -34,6 +34,7 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
     "next": "^13.4.13",
-    "pg": "^8.11.2"
+    "pg": "^8.11.2",
+    "pg-promise": "^11.5.3"
   }
 }

@@ -21,11 +21,13 @@ h4{
     font-size: 35px;
     padding-left: 0.2em;
 }
-.radiobtn{
+.radiobtn,.buttons2{
     text-align: center;
     padding-top: 1em;
 }
-
+.rbutton{
+    margin-bottom: 1em;
+}
 h2{
     text-align: center;
     padding-bottom: 2em;
@@ -48,12 +50,20 @@ ul {
 .error{
     text-align: center;
     color: red;
+    /* background-color: #ffc107; */
+    /* color: #333; */
+    /* padding: 10px; */
+    text-align: center;
+    font-weight: bold;
 }
 .routes{
     text-align: center;
     padding-bottom: 3em;
 }
-@media (max-width: 800px) {
+.g{
+    padding: 3em;
+}
+@media (max-width:800px) {
     .container{
         width: 90%;
         background-color: #e9edc9;
@@ -64,6 +74,7 @@ ul {
     }
     .rbutton, .gbutton{
         background-color: lightgoldenrodyellow;
+        margin-bottom: 2em;
     }
     
 }

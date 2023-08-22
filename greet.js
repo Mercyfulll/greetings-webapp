@@ -12,7 +12,7 @@ export default function greetMe(){
         var valid = /^[A-Za-z]+$/
          let validName = valid.test(name)
        if(validName){
-           isValidName = name
+           isValidName = name.toLowerCase()
            namesList.push(isValidName)
        }
         
@@ -46,42 +46,40 @@ export default function greetMe(){
                 namesGreeted[lowNames]++;
             }
     }
+    function getUserCount(name){
+        for (var name in namesGreeted) {
+          if (namesGreeted.hasOwnProperty(name)) {
+            return namesGreeted[name]; 
+          }
+        } 
+    }
     function getObject(nameParam){
         for(let name in namesGreeted){
-            
             if(name === nameParam ){
-                    console.log(nameParam)
+                    // console.log(nameParam)
                    number = namesGreeted[name]
                    param = nameParam
             }
         }
             return number
-        }
-
+    }
     function getNamesGreetings(){
-        
          return namesGreeted
-    }
-    function errorDisplay(){
-        if(!validateName() && !languageSelector()){
-            return "No name or language selected"
-        }
-    }
-    function nameErrorDisplay(){
-        if(!validateName()){
-            return "Please enter name"
-        }
-    }
-    function buttonErrorDisplay(){
-        if(!languageSelector()){
-            return "Please select language"
-        }
     }
     function getCounter(){
         return greetingsCounter;
     }
     function resetCount(){
         greetingsCounter = 0;
+    }
+    function reset(){
+        greetingsCounter = 0;
+        namesGreeted = {};
+        isValidName = '';
+        greeting = '';
+        namesList = [];
+        param = '';
+        number = 0; 
     }
     return {
         greetedUsers,
@@ -91,11 +89,10 @@ export default function greetMe(){
         getObject,
         setValidateName,
         getValidateName,
-        errorDisplay,
-        nameErrorDisplay,
-        buttonErrorDisplay,
         getCounter,
+        getUserCount,
         getNamesGreetings,
-        resetCount
+        resetCount,
+        reset
     }
 }

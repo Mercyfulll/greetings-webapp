@@ -1,14 +1,15 @@
+
 <h1>Greetings</h1>
-    <div class="errors">
-        
-        <span class="error">{{errorM}}</span>
-        
-    </div>
-    <form action="/counter" method="POST">
+    
+    <div class="error">{{messages.error}}</div>
+    
+
+    <form action="/" method="POST">
         <div class="textbox">
             <label name="name">Name:</label>
             <input type="text" class="text" name="name">
-            <label class="count" name="count"><a href="/greeted">{{count}}</a></label>
+            <label class="count" name="count"><a href="/greeted">{{counts}}</a></label>
+           
         </div>
         <div class="radiobtn">
             <input type="radio" name ="languages" value="english">
@@ -22,10 +23,20 @@
         </div>
         <div class="buttons">
             <button class="gbutton" type="submit">Greet me</button>
-            
-            <button class="rbutton" type="button">Reset</button>
         </div>
+        <div>
     </form>
+    <div class="buttons2">
+        <form action="/reset" method="POST">
+            <button class="rbutton" type="submit">Reset</button><br>
+        </form>
+        <div class="link">
+        <a href="/greeted">Greeted Users</a>
+        </div>
+    </div>
     {{!-- /'' --}}
 <h2> <span class="output">{{language}}</span>, <span class="gname"></span>{{name}}</span></h2>
+
+ 
 </div>
+

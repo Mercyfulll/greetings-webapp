@@ -1,1 +1,1 @@
-create table Greetings (id serial primary key, user_name text not null, names_count int not null);
+CREATE TABLE greetings (id SERIAL PRIMARY KEY, user_name TEXT NOT NULL, names_count INT NOT NULL);

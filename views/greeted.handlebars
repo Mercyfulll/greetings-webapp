@@ -1,8 +1,8 @@
 <div class="routes">
     <h1>Users greeted</h1>
-    {{#each namesGreeted}}
+    {{#each names}}
     <ul>
-        <li><a href="/counter/{{@key}}">{{@key}}</a><li>
+        <li><a href="/counter/{{this.user_name}}">{{this.user_name}}</a><li>
     <ul>
     {{/each}}
 </div>
